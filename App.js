@@ -1,21 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect } from 'react';
+import Navigation from "./app/navigations/Navigation";
+
+import { LogBox, YellowBox } from 'react-native';
+import _ from 'lodash';
+import * as Sentry from "sentry-expo";
+
 
 export default function App() {
+
+  LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Navigation 
+    />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
